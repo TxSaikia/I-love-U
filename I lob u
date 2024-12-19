@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Proposal</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        h1 {
+            font-size: 3rem;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        p {
+            font-size: 1.5rem;
+            margin: 20px 0;
+        }
+        .button-container {
+            position: relative;
+        }
+        .btn {
+            font-size: 1.5rem;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.3s;
+        }
+        .yes-btn {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .yes-btn:hover {
+            background-color: #45a049;
+            transform: scale(1.1);
+        }
+        .no-btn {
+            background-color: #f44336;
+            color: white;
+            position: absolute;
+        }
+        .no-btn:hover {
+            transform: scale(1.1);
+        }
+        #message {
+            display: none;
+            margin-top: 20px;
+            font-size: 2rem;
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+    <script>
+        function moveButton() {
+            const yesButton = document.querySelector(".yes-btn");
+            const noButton = document.querySelector(".no-btn");
+            const tempX = yesButton.style.left || "0px";
+            const tempY = yesButton.style.top || "0px";
+
+            // Swap positions
+            yesButton.style.left = noButton.style.left || "100px";
+            yesButton.style.top = noButton.style.top || "0px";
+            noButton.style.left = tempX;
+            noButton.style.top = tempY;
+        }
+
+        function showMessage() {
+            document.querySelector("#message").style.display = "block";
+        }
+    </script>
+</head>
+<body>
+    <h1>I Love You ❤️</h1>
+    <p>Will you be mine?</p>
+    <div class="button-container">
+        <button class="btn yes-btn" onclick="showMessage()">Yes</button>
+        <button class="btn no-btn" onmouseover="moveButton()" style="left: 100px; top: 0;">No</button>
+    </div>
+    <div id="message">Hey, you know you are my pookie! 🥰</div>
+</body>
+</html>
